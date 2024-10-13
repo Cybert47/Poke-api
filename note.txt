@@ -1,0 +1,21 @@
+calificacion:
+
+Entrega numero 1:
+
+- creacion de pagina principal y segregacion de componentes(2.5): 2.5 OK
+- listado de pokemons de acuerdo al figma(2.5): 2.5 OK
+
+Entrega numero 2: 
+
+- Barra de busqueda por pagina(2.5): 2.5 OK
+- Componente de paginación (2.5)): 0, no hay funcionalidad
+
+Entrega numero 3: 
+
+- Contexto para el uso de pokemons(1.5): 1.5 OK
+- Contexto para el uso de filtros(1): 0.8, no esta separado del contexto
+- Reducer para el manejo de acciones(1.5): 1.3, no esta separado del contexto
+- Busqueda de pokemon por todo el dataSet(1): 0, no esta esta funcionalidad 
+
+
+nota: 5 + 2.5 + 3.6 / 3  = 3.7
