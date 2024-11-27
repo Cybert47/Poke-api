@@ -1,0 +1,45 @@
+VENTAJAS DEL PATRON CONTAINER
+Mejora la organización del código
+Usar el patrón Container me ayuda a organizar mejor el código. Al separar la lógica de la presentación, cada componente hace una sola cosa y la hace bien. Esto hace que el código sea más claro y fácil de entender.
+Ejemplo:
+
+En PokemonListContainer (archivo: src/components/containers/PokemonListContainer.js), manejo toda la lógica relacionada con el estado: si los datos están cargando, si hay un error, y paso solo los datos de los Pokémon a PokemonListView. De esta manera, el componente PokemonListView solo se encarga de mostrar los Pokémon de la forma correcta, sin preocuparse por la lógica de negocio.
+Reutilización de componentes
+Al tener la lógica separada, puedo reutilizar los mismos componentes de presentación en otras partes de la aplicación sin preocuparme de cómo se maneja la lógica. Esto me ahorra tiempo y esfuerzo, porque no tengo que duplicar el código.
+Ejemplo:
+
+Si más adelante necesito usar la barra de búsqueda (SearchBarView) en otra parte de la app, solo necesito el contenedor SearchBarContainer para manejar la lógica de filtrado y no tengo que preocuparme por reescribir cómo se muestra la búsqueda.
+Facilita la depuración y el mantenimiento
+Si algo no funciona correctamente o quiero cambiar cómo se filtran los Pokémon, puedo modificar solo el contenedor sin tocar los componentes de presentación. Esto facilita la depuración, porque sé que la lógica está aislada en un solo lugar.
+Ejemplo:
+
+En SearchBarContainer (archivo: src/components/containers/SearchBarContainer.js), si quiero cambiar cómo se filtran los Pokémon (por ejemplo, por tipo de Pokémon además de nombre), solo tengo que modificar el contenedor. Los cambios no afectan al componente SearchBarView.
+Mejora la testabilidad
+Como la lógica y la UI están separadas, puedo probar los contenedores por separado sin tener que preocuparte por la parte visual. Esto hace que sea más fácil escribir pruebas para asegurarme de que la lógica está funcionando correctamente.
+Ejemplo:
+
+Puedo escribir una prueba unitaria para PokemonListContainer para asegurarme de que el filtrado de Pokémon funciona como debería. No necesito preocuparme por los detalles visuales de cómo se muestran los Pokémon en la lista.
+
+DESVENTAJAS DEL PATRON CONTAINER:
+
+Más complejidad inicial
+Al principio, separar todo en componentes pequeños puede hacer que el proyecto sea más difícil de entender, especialmente para un principiante. Puede parecer que hay demasiado código para algo sencillo.
+Ejemplo:
+
+Para algo simple como mostrar una lista de Pokémon, ahora tengo que tener un archivo para el contenedor (PokemonListContainer.js) y otro para la vista (PokemonListView.js). Esto puede ser confuso al principio, porque en vez de un solo archivo, tengo que trabajar con varios archivos.
+Mayor cantidad de archivos
+Como cada componente se separa en contenedores y vistas, la cantidad de archivos en el proyecto crece rápidamente. Esto puede ser difícil de manejar si el proyecto es pequeño o si no se organiza bien.
+Ejemplo:
+
+En lugar de tener solo un archivo que haga todo (mostrar la lista de Pokémon), ahora tengo que manejar archivos separados como PokemonListContainer.js, PokemonListView.js, SearchBarContainer.js, SearchBarView.js, etc. Esto puede ser abrumador si el proyecto no es lo suficientemente grande como para justificar esta separación.
+No siempre es necesario en proyectos pequeños
+Si el proyecto es pequeño y no tiene una lógica compleja, el patrón Container puede ser innecesario. En este caso, escribir todo en un solo componente sería más sencillo y rápido.
+Ejemplo:
+
+Si solo estuviera mostrando una lista simple de Pokémon sin mucha interacción, podría hacer todo en un solo archivo. Usar contenedores en este caso sería un exceso, porque no tendría muchos beneficios para proyectos pequeños.
+Posible duplicación de lógica
+Si no abstraigo bien la lógica entre los contenedores, podría terminar escribiendo código repetido en varios lugares. Esto puede pasar si varios contenedores hacen cosas similares y no comparto funciones entre ellos.
+Ejemplo:
+
+Si tuviera otro contenedor que también filtra Pokémon por algún criterio (como por tipo), podría terminar escribiendo la misma lógica de filtrado en varios lugares. Para evitar esto, tendría que refactorizar y crear funciones compartidas, lo cual aumenta la complejidad.
+
